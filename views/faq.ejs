@@ -1,0 +1,105 @@
+
+<%- include('header.ejs'); -%>
+<body style="margin-bottom: 5rem">
+  <%- include('nav.ejs'); -%>
+
+<!-- User and General posted questions -->
+<div class="container mt-5">
+    <div class="row">
+      <!-- User posted questions -->
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="mb-0">User posted questions</h3>
+          </div>
+          <div class="card-body">
+            <div class="list-group">
+              <% data.forEach((x)=> { %>
+                <div class="list-group-item">
+                  <h5 class="mb-1">Question:</h5>
+                  <p class="mb-1"><%= x.quest %></p>
+                  <h6 class="mb-1">Answer:</h6>
+                  <p class="mb-1"><%= x.ans %></p>
+                </div>
+              <% }) %>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- General posted questions -->
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="mb-0">General posted questions</h3>
+          </div>
+          <div class="card-body">
+            <div class="list-group">
+              <!-- Add your data for general questions here -->
+              <div class="list-group-item">
+                <p><strong>Question1:How can I access the health insurance guidance on your web application?</p></strong>
+                <p>Navigate to the "Services" section and click on "Health Insurance." Our user-friendly platform will guide you through the process.</p>
+                <p><strong>Question2:What types of part-time job opportunities are available for international students?</p></strong>
+                <p>Explore our "Part-Time Jobs" section to discover a range of employment opportunities tailored to international students.</p>
+                <p><strong>Question2:What types of part-time job opportunities are available for international students?</p></strong>
+                <p>Explore our "Part-Time Jobs" section to discover a range of employment opportunities tailored to international students.</p>
+                <p><strong>Question3:How does your accommodations assistance work?</p></strong>
+                <p>Find suitable and affordable housing options by visiting the "Accommodations Assistance" section. We provide resources and support to meet your preferences and budget.
+                </p>
+                <p><strong>Question4:How do I customize my resume for part-time job applications?</p></strong>
+                <p>Follow the steps outlined in the "Part-Time Jobs" page to build an effective resume tailored to the specific job you're applying for.</p>
+                <p><strong>Question5:Can you provide tips for building a strong part-time job resume?</p></strong>
+                <p>Refer to the "Tips for Building a Strong Part-Time Job Resume" section for valuable advice on customizing your resume, quantifying achievements, and more.</p>
+                <p><strong>Question6:What kind of interview questions should I prepare for part-time job interviews?</p></strong>
+                <p>Watch our recommended video lectures on job interview questions in the "Video Lectures References" section for insights into common interview questions and effective responses.</p>
+                <p><strong>Question7:How can I handle challenging situations at work as an international student?
+                </p></strong>
+                <p>Read through the sample interview questions and answers provided in the "Sample Interview Questions" section for guidance on handling challenging work scenarios.</p>
+                <p><strong>Question8:What languages should I highlight on my resume as an international student?</p></strong>
+                <p>In the "Tips for Building a Strong Part-Time Job Resume" section, we recommend highlighting additional languages and specifying your proficiency level.</p>
+                <p><strong>Question9:Where can I find information about the best part-time jobs for teenagers?</p></strong>
+                <p>Check out the external link provided in the "Video Lectures References" section for insights into the best part-time jobs for teenagers.</p>
+                <p><strong>Question10:How do I contact International Students Assistance for further assistance?</p></strong>
+                <p>Visit our "Contact Us" page for information on reaching out to us through email, phone, office visits, or social media. We are here to assist you with any inquiries.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Post a Question -->
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="mb-0">Post a Question</h3>
+          </div>
+          <div class="card-body">
+            <form action="/faq" method="post">
+              <div class="form-group">
+                <label for="question">Your Question:</label>
+                <textarea class="form-control" id="question" name="question" rows="4"></textarea>
+              </div>
+              <button type="submit" class="btn btn-success">Submit Question</button>
+            </form>
+          </div>
+        </div>
+  
+        <!-- Error message -->
+        <div class="mt-3">
+          <p id="errors" class="text-success">
+            <div class="alert alert-success">
+              <% if(typeof(error) != 'undefined') { %>
+                <%= error %>
+              <% } %>
+            </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+</body>
+<%- include('footer.ejs'); -%>
